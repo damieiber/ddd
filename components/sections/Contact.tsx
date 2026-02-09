@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Linkedin, Github, Twitter, Send } from 'lucide-react'
+import { Mail, Linkedin, Github, Twitter, Send, MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 
@@ -25,10 +25,10 @@ const socialLinks = [
     color: 'hover:text-[#1DA1F2]',
   },
   {
-    name: 'Email',
-    icon: Mail,
-    href: 'mailto:damieiber@gmail.com',
-    color: 'hover:text-dev',
+    name: 'WhatsApp',
+    icon: MessageCircle,
+    href: 'https://wa.me/541155972413',
+    color: 'hover:text-[#25D366]',
   },
 ]
 
