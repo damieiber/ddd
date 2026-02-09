@@ -9,25 +9,25 @@ const socialLinks = [
   {
     name: 'GitHub',
     icon: Github,
-    href: 'https://github.com',
+    href: 'https://github.com/damieiber',
     color: 'hover:text-slate-50',
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/damian-eiberman-72792813/',
     color: 'hover:text-[#0A66C2]',
   },
   {
     name: 'Twitter',
     icon: Twitter,
-    href: 'https://twitter.com',
+    href: 'https://x.com/Dami_Eiber',
     color: 'hover:text-[#1DA1F2]',
   },
   {
     name: 'Email',
     icon: Mail,
-    href: 'mailto:hello@example.com',
+    href: 'mailto:damieiber@gmail.com',
     color: 'hover:text-dev',
   },
 ]
@@ -106,7 +106,7 @@ export function Contact({ dict }: { dict: any }) {
 
               {/* Email CTA */}
               <Button size="lg" className="w-full group" asChild>
-                <a href="mailto:hello@example.com">
+                <a href="mailto:damieiber@gmail.com">
                   <Send className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   {dict.emailCta}
                 </a>
