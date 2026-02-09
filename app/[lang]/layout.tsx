@@ -1,30 +1,35 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
-import { i18n } from '@/i18n-config'
+import { i18n, Locale } from '@/i18n-config'
+import { getDictionary } from '@/lib/get-dictionary'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
-export const metadata: Metadata = {
-  title: 'Dami Eiberman | Fullstack Developer, Data Scientist & Data Analyst',
-  description: 'Building Scalable Code. Extracting Actionable Insights. Professional portfolio showcasing fullstack development and data analytics expertise.',
-  keywords: ['Fullstack Developer', 'Data Analyst', 'React', 'Next.js', 'Python', 'Data Visualization', 'Machine Learning'],
-  authors: [{ name: 'Dami Eiberman' }],
-  openGraph: {
-    title: 'Dami Eiberman | Fullstack Developer & Data Analyst',
-    description: 'Building Scalable Code. Extracting Actionable Insights.',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dami Eiberman | Fullstack Developer & Data Analyst',
-    description: 'Building Scalable Code. Extracting Actionable Insights.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
+  const dict = await getDictionary(params.lang)
+  
+  return {
+    title: `Dami Eiberman | ${dict.hero.subtitle1}`,
+    description: dict.about.description2,
+    keywords: ['Fullstack Developer', 'Data Analyst', 'React', 'Next.js', 'Python', 'Data Visualization', 'Machine Learning'],
+    authors: [{ name: 'Dami Eiberman' }],
+    openGraph: {
+      title: `Dami Eiberman | ${dict.hero.subtitle1}`,
+      description: dict.about.description2,
+      type: 'website',
+      locale: params.lang === 'es' ? 'es_AR' : 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Dami Eiberman | ${dict.hero.subtitle1}`,
+      description: dict.about.description2,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  }
 }
 
 export async function generateStaticParams() {

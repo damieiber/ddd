@@ -1,5 +1,5 @@
 import { getDictionary } from '@/lib/get-dictionary'
-import { Locale } from '@/i18n-config'
+import { Locale, i18n } from '@/i18n-config'
 import { ClientLayout } from '@/components/layout/ClientLayout'
 import { Hero } from '@/components/sections/Hero'
 import { Projects } from '@/components/sections/Projects'
@@ -7,6 +7,10 @@ import { Skills } from '@/components/sections/Skills'
 import { Experience } from '@/components/sections/Experience'
 import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }))
+}
 
 export default async function Home({
   params: { lang },

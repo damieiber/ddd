@@ -8,11 +8,9 @@ const dictionaries = {
 }
 
 export const getDictionary = async (locale: Locale) => {
-  console.log('getDictionary called with:', locale)
-  console.log('Available dictionaries:', Object.keys(dictionaries))
-  
+  // If the dictionary for the requested locale doesn't exist, fall back to 'es'
   if (!dictionaries[locale]) {
-    console.error(`Dictionary for locale '${locale}' not found. Defaulting to 'es'.`)
+    console.warn(`Dictionary for locale '${locale}' not found. Defaulting to 'es'.`)
     return dictionaries['es']()
   }
   
