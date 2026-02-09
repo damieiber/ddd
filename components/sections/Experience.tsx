@@ -41,11 +41,20 @@ export function Experience({ dict }: { dict: any }) {
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-0 w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 z-10 flex items-center justify-center md:left-1/2 md:-translate-x-1/2">
-                  <div className={`w-3 h-3 rounded-full ${
-                    exp.type === 'dev' ? 'bg-dev' : 
-                    exp.type === 'data' ? 'bg-data' : 
-                    'bg-white'
-                  }`} />
+                  <div 
+                    className={`absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 ${
+                      exp.type === 'dev' ? 'border-dev bg-slate-900' : 
+                      exp.type === 'data' ? 'border-data bg-slate-900' : 
+                      'border-ai bg-slate-900'
+                    }`}
+                  />
+                  <div className={`mb-1 text-sm font-semibold ${
+                    exp.type === 'dev' ? 'text-dev' : 
+                    exp.type === 'data' ? 'text-data' : 
+                    'text-ai'
+                  }`}>
+                    {exp.period}
+                  </div>
                 </div>
 
                 {/* Content Card */}

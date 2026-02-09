@@ -49,13 +49,19 @@ const config: Config = {
           light: '#34d399',   // emerald-400
           dark: '#059669',    // emerald-600
         },
+        ai: {
+          DEFAULT: '#8b5cf6', // violet-500
+          light: '#a78bfa',   // violet-400
+          dark: '#7c3aed',    // violet-600
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'gradient-dev': 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
         'gradient-data': 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-        'gradient-hero': 'linear-gradient(135deg, #06b6d4 0%, #10b981 100%)',
+        'gradient-ai': 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #06b6d4 0%, #10b981 50%, #8b5cf6 100%)',
         'noise': "url('/noise.svg')",
       },
       animation: {

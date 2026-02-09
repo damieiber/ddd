@@ -17,7 +17,7 @@ export function Hero({ dict }: { dict: any }) {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-dev/5 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-dev/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -29,7 +29,7 @@ export function Hero({ dict }: { dict: any }) {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-data/5 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-data/10 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.5, 0.3, 0.5],
@@ -40,29 +40,32 @@ export function Hero({ dict }: { dict: any }) {
             ease: 'easeInOut',
           }}
         />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-ai/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1,
+          }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-data animate-pulse" />
-          <span className="text-sm text-slate-400">{dict.badge}</span>
-        </motion.div>
-
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
         >
           <span className="block text-slate-50">{dict.title1}</span>
-          <span className="block text-gradient mt-2">{dict.title2}</span>
+          <span className="block text-slate-200">{dict.title2}</span>
+          <span className="block text-gradient-ai mt-2">{dict.title3}</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -75,7 +78,7 @@ export function Hero({ dict }: { dict: any }) {
           {dict.subtitle1} <br/>
           {dict.subtitle2}{' '} 
           <span className="text-dev">{dict.subtitleEscalan}</span> y{' '}
-          <span className="text-data">{dict.subtitleGeneranValor}</span>.
+          <span className="text-ai">{dict.subtitleGeneranValor}</span>.
         </motion.p>
 
         {/* CTAs */}

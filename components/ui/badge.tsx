@@ -2,7 +2,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'dev' | 'data' | 'hybrid'
+  variant?: 'default' | 'dev' | 'data' | 'ai' | 'hybrid'
 }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
@@ -15,6 +15,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
           variant === 'default' && 'bg-slate-800 text-slate-300',
           variant === 'dev' && 'bg-dev/20 text-dev border border-dev/30',
           variant === 'data' && 'bg-data/20 text-data border border-data/30',
+          variant === 'ai' && 'bg-ai/20 text-ai border border-ai/30',
           variant === 'hybrid' && 'bg-gradient-to-r from-dev/20 to-data/20 text-slate-200 border border-slate-700',
           className
         )}

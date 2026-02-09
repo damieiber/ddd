@@ -7,4 +7,14 @@ const dictionaries = {
   en: () => import('@/dictionaries/en').then((module) => module.default),
 }
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]()
+export const getDictionary = async (locale: Locale) => {
+  console.log('getDictionary called with:', locale)
+  console.log('Available dictionaries:', Object.keys(dictionaries))
+  
+  if (!dictionaries[locale]) {
+    console.error(`Dictionary for locale '${locale}' not found. Defaulting to 'es'.`)
+    return dictionaries['es']()
+  }
+  
+  return dictionaries[locale]()
+}

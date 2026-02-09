@@ -5,17 +5,17 @@ const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
     hover?: boolean
-    glow?: 'dev' | 'data' | 'hybrid' | 'none'
+    glow?: 'dev' | 'data' | 'ai' | 'none'
   }
 >(({ className, hover = true, glow = 'none', ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      'rounded-xl border border-slate-800/50 bg-slate-900/50 backdrop-blur-sm transition-all duration-300',
+      'rounded-xl border border-slate-800/50 bg-slate-900/50 backdrop-blur-sm transition-all duration-300 relative',
       hover && 'hover:border-slate-700/50 hover:bg-slate-900/70',
       glow === 'dev' && 'hover:shadow-lg hover:shadow-dev/10',
       glow === 'data' && 'hover:shadow-lg hover:shadow-data/10',
-      glow === 'hybrid' && 'hover:shadow-lg hover:shadow-purple-500/10', // Hybrid glow
+      glow === 'ai' && 'hover:shadow-lg hover:shadow-ai/10',
       className
     )}
     {...props}

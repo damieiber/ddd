@@ -128,9 +128,13 @@
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
   }
 
+  .glow-ai {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
   /* Gradient text */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-dev to-data;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-dev via-data to-ai;
   }
 
   .text-gradient-dev {
@@ -139,6 +143,10 @@
 
   .text-gradient-data {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-data-light to-data-dark;
+  }
+
+  .text-gradient-ai {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ai-light to-ai-dark;
   }
 
   /* Grid pattern background */
