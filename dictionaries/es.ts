@@ -19,6 +19,7 @@ export default {
     ctaProject: 'Ver Proyectos',
     ctaCV: 'Descargar CV',
     shortcut: 'para navegación rápida',
+    cvPath: '/Damian_Eiberman.pdf',
   },
   projects: {
     title: 'Proyectos',

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import '../globals.css'
 import { i18n, Locale } from '@/i18n-config'
 import { getDictionary } from '@/lib/get-dictionary'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -44,21 +45,28 @@ export default function RootLayout({
   params: { lang: string }
 }) {
   return (
-    <html lang={params.lang} className="dark scroll-smooth">
-      <body className={`${inter.variable} font-sans bg-slate-950 text-slate-50 antialiased`}>
-        <div className="relative min-h-screen grainy">
-          {/* Background grid pattern */}
-          <div className="fixed inset-0 bg-grid pointer-events-none" />
-          
-          {/* Gradient orbs for ambient lighting */}
-          <div className="fixed top-0 left-1/4 w-96 h-96 bg-dev/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-data/10 rounded-full blur-3xl pointer-events-none" />
-          
-          {/* Main content */}
-          <main className="relative z-10">
-            {children}
-          </main>
-        </div>
+    <html lang={params.lang} className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans bg-background text-foreground antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative min-h-screen grainy">
+            {/* Background grid pattern */}
+            <div className="fixed inset-0 bg-grid pointer-events-none" />
+            
+            {/* Gradient orbs for ambient lighting */}
+            <div className="fixed top-0 left-1/4 w-96 h-96 bg-dev/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-data/10 rounded-full blur-3xl pointer-events-none" />
+            
+            {/* Main content */}
+            <main className="relative z-10">
+              {children}
+            </main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

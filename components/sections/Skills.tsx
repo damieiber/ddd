@@ -9,14 +9,15 @@ import {
   Radar,
   Tooltip
 } from 'recharts'
+import { useTheme } from 'next-themes'
 
 export function Skills({ dict }: { dict: any }) {
   // Custom tooltip for the radar chart
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-slate-900 border border-slate-800 p-2 rounded shadow-xl">
-          <p className="text-slate-200 font-bold">{label}</p>
+        <div className="bg-popover border border-border p-2 rounded shadow-xl">
+          <p className="text-popover-foreground font-bold">{label}</p>
           <p className="text-cyan-400 text-sm">
             Level: {payload[0].value}%
           </p>
@@ -29,8 +30,11 @@ export function Skills({ dict }: { dict: any }) {
   const devStack = dict.techStack.dev
   const dataStack = dict.techStack.data
 
+  const { theme } = useTheme()
+  const isDark = theme === 'dark'
+
   return (
-    <section id="skills" className="py-20 px-4 bg-slate-900/50">
+    <section id="skills" className="py-20 px-4 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +46,7 @@ export function Skills({ dict }: { dict: any }) {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             {dict.skills.title} <span className="text-gradient">{dict.skills.titleSet}</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             {dict.skills.description}
           </p>
         </motion.div>
@@ -56,13 +60,13 @@ export function Skills({ dict }: { dict: any }) {
             transition={{ duration: 0.5 }}
             className="h-[400px] w-full"
           >
-            <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dict.skillsList}>
-                <PolarGrid stroke="#334155" />
-                <PolarAngleAxis 
-                  dataKey="name" 
-                  tick={{ fill: '#94a3b8', fontSize: 12 }} 
-                />
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dict.skillsList}>
+                  <PolarGrid stroke={isDark ? "#334155" : "#e2e8f0"} />
+                  <PolarAngleAxis 
+                    dataKey="name" 
+                    tick={{ fill: isDark ? '#94a3b8' : '#64748b', fontSize: 12 }} 
+                  />
                 <Radar
                   name="Skills"
                   dataKey="value"
@@ -92,7 +96,7 @@ export function Skills({ dict }: { dict: any }) {
                 {devStack.map((tech: string) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm hover:border-dev/50 hover:text-dev transition-colors cursor-default"
+                    className="px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-foreground hover:border-dev/50 hover:text-dev transition-colors cursor-default"
                   >
                     {tech}
                   </span>
@@ -114,7 +118,7 @@ export function Skills({ dict }: { dict: any }) {
                 {dataStack.map((tech: string) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm hover:border-data/50 hover:text-data transition-colors cursor-default"
+                    className="px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-foreground hover:border-data/50 hover:text-data transition-colors cursor-default"
                   >
                     {tech}
                   </span>

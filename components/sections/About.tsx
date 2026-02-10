@@ -25,7 +25,7 @@ export function About({ dict }: { dict: any }) {
   ]
 
   return (
-    <section id="about" className="py-20 px-4 bg-slate-900/30">
+    <section id="about" className="py-20 px-4 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -52,7 +52,7 @@ export function About({ dict }: { dict: any }) {
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               {/* Gradient border effect */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-dev via-data to-ai p-1 animate-glow">
-                <div className="relative w-full h-full rounded-2xl bg-slate-900 overflow-hidden">
+                <div className="relative w-full h-full rounded-2xl bg-card overflow-hidden">
                   <Image
                     src="/Face.jpg"
                     alt="Profile"
@@ -95,14 +95,14 @@ export function About({ dict }: { dict: any }) {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               {dict.description1Start}{' '}
               <span className="text-dev font-medium">{dict.description1Code}</span>
               {', '}
               <span className="text-data font-medium">{dict.description1Data}{' '}</span>
               {dict.description1End}
             </p>
-            <p className="text-slate-400 mb-8">
+            <p className="text-muted-foreground mb-8">
               {dict.description2}
             </p>
 
@@ -122,10 +122,10 @@ export function About({ dict }: { dict: any }) {
                       item.color === 'data' ? 'text-data' : 
                       'text-ai'
                     }`} />
-                    <div className="text-2xl font-bold text-slate-50 mb-1">
+                    <div className="text-2xl font-bold text-foreground mb-1">
                       {item.title}
                     </div>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-muted-foreground">
                       {item.desc}
                     </p>
                   </Card>

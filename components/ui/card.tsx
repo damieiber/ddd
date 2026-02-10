@@ -11,8 +11,8 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'rounded-xl border border-slate-800/50 bg-slate-900/50 backdrop-blur-sm transition-all duration-300 relative',
-      hover && 'hover:border-slate-700/50 hover:bg-slate-900/70',
+      'rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 relative',
+      hover && 'hover:border-border hover:bg-card/70',
       glow === 'dev' && 'hover:shadow-lg hover:shadow-dev/10',
       glow === 'data' && 'hover:shadow-lg hover:shadow-data/10',
       glow === 'ai' && 'hover:shadow-lg hover:shadow-ai/10',

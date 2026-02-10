@@ -10,7 +10,7 @@ const socialLinks = [
     name: 'GitHub',
     icon: Github,
     href: 'https://github.com/damieiber',
-    color: 'hover:text-slate-50',
+    color: 'hover:text-foreground',
   },
   {
     name: 'LinkedIn',
@@ -47,7 +47,7 @@ export function Contact({ dict }: { dict: any }) {
     {
       ...dict.services.collab,
       color: 'none',
-      titleColor: 'text-slate-300',
+      titleColor: 'text-muted-foreground',
     },
   ]
 
@@ -65,7 +65,7 @@ export function Contact({ dict }: { dict: any }) {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
              {dict.title} <span className="text-gradient">{dict.titleTogether}</span>{dict.titleQuestion}
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             {dict.description}
           </p>
         </motion.div>
@@ -79,10 +79,10 @@ export function Contact({ dict }: { dict: any }) {
             transition={{ duration: 0.5 }}
           >
             <Card className="p-8 h-full border-gradient">
-              <h3 className="text-xl font-semibold mb-4 text-slate-50">
+              <h3 className="text-xl font-semibold mb-4 text-foreground">
                 {dict.cardTitle}
               </h3>
-              <p className="text-slate-400 mb-6">
+              <p className="text-muted-foreground mb-6">
                 {dict.cardDesc}
               </p>
 
@@ -96,7 +96,7 @@ export function Contact({ dict }: { dict: any }) {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 text-slate-400 transition-colors ${link.color}`}
+                    className={`p-3 rounded-xl bg-secondary/50 border border-border/50 text-muted-foreground transition-colors ${link.color}`}
                     aria-label={link.name}
                   >
                     <link.icon className="h-5 w-5" />
@@ -127,7 +127,7 @@ export function Contact({ dict }: { dict: any }) {
                 <h4 className={`text-sm font-medium ${service.titleColor} mb-2`}>
                   {service.title}
                 </h4>
-                <p className={service.color === 'none' ? 'text-slate-400' : 'text-slate-300'}>
+                <p className={service.color === 'none' ? 'text-muted-foreground' : 'text-slate-300'}>
                   {service.desc}
                 </p>
               </Card>
@@ -141,16 +141,16 @@ export function Contact({ dict }: { dict: any }) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-20 pt-8 border-t border-slate-800 text-center"
+          className="mt-20 pt-8 border-t border-border text-center"
         >
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-muted-foreground">
             {dict.footer.designed}{' '}
             <span className="text-dev">♥</span> using{' '}
-            <span className="text-slate-400">Next.js</span>,{' '}
-            <span className="text-slate-400">TypeScript</span> &{' '}
-            <span className="text-slate-400">Tailwind CSS</span>
+            <span className="text-muted-foreground">Next.js</span>,{' '}
+            <span className="text-muted-foreground">TypeScript</span> &{' '}
+            <span className="text-muted-foreground">Tailwind CSS</span>
           </p>
-          <p className="text-xs text-slate-600 mt-2">
+          <p className="text-xs text-muted-foreground mt-2">
             © {new Date().getFullYear()} Dami Eiberman. {dict.footer.rights}
           </p>
         </motion.div>

@@ -63,8 +63,8 @@ export function Hero({ dict }: { dict: any }) {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
         >
-          <span className="block text-slate-50">{dict.title1}</span>
-          <span className="block text-slate-200">{dict.title2}</span>
+          <span className="block text-foreground">{dict.title1}</span>
+          <span className="block text-muted-foreground">{dict.title2}</span>
           <span className="block text-gradient-ai mt-2">{dict.title3}</span>
         </motion.h1>
 
@@ -73,7 +73,7 @@ export function Hero({ dict }: { dict: any }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
         >
           {dict.subtitle1} <br/>
           {dict.subtitle2}{' '} 
@@ -103,7 +103,7 @@ export function Hero({ dict }: { dict: any }) {
             asChild
             aria-label="Descargar currículum"
           >
-            <a href="/cv.pdf" download>
+            <a href={dict.cvPath} download>
               <FileDown className="mr-2 h-5 w-5" />
               {dict.ctaCV}
             </a>
@@ -115,10 +115,10 @@ export function Hero({ dict }: { dict: any }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12 text-sm text-slate-500"
+          className="mt-12 text-sm text-muted-foreground"
         >
           Presiona{' '}
-          <kbd className="px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-400 font-mono text-xs">
+          <kbd className="px-2 py-1 rounded bg-muted border border-border text-muted-foreground font-mono text-xs">
             Ctrl+K
           </kbd>{' '}
           {dict.shortcut}
@@ -134,7 +134,7 @@ export function Hero({ dict }: { dict: any }) {
       >
         <motion.button
           onClick={scrollToProjects}
-          className="flex flex-col items-center gap-2 text-slate-500 hover:text-slate-400 transition-colors"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           aria-label="Scroll hacia abajo"

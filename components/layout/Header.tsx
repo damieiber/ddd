@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Command, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { cn } from '@/lib/utils'
 import { Locale } from '@/i18n-config'
 import Link from 'next/link'
@@ -54,8 +55,8 @@ export function Header({ onOpenCommandPalette, dict, lang }: HeaderProps) {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-slate-950/80 backdrop-blur-lg border-b border-slate-800/50'
+        isScrolled || isMobileMenuOpen
+          ? 'bg-background/90 backdrop-blur-lg border-b border-border/50'
           : 'bg-transparent'
       )}
     >
@@ -79,7 +80,7 @@ export function Header({ onOpenCommandPalette, dict, lang }: HeaderProps) {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="px-4 py-2 text-sm text-slate-400 hover:text-slate-50 transition-colors rounded-lg hover:bg-slate-800/50"
+                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
               >
                 {item.name}
               </button>
@@ -91,11 +92,14 @@ export function Header({ onOpenCommandPalette, dict, lang }: HeaderProps) {
             {/* Language Switcher */}
             <Link
               href={redirectedPathName(lang === 'es' ? 'en' : 'es')}
-              className="p-2 rounded-lg hover:bg-slate-800/50 text-slate-400 hover:text-slate-50 transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Cambiar idioma"
             >
-              <span className="text-xs font-bold">{lang === 'es' ? 'EN' : 'ES'}</span>
+              <span className="text-xs font-bold">{lang === 'es' ? 'ES' : 'EN'}</span>
             </Link>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Command Palette Button */}
             <Button
@@ -140,7 +144,7 @@ export function Header({ onOpenCommandPalette, dict, lang }: HeaderProps) {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="block w-full text-left px-4 py-3 text-slate-400 hover:text-slate-50 hover:bg-slate-800/50 rounded-lg transition-colors"
+                    className="block w-full text-left px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
                   >
                     {item.name}
                   </button>

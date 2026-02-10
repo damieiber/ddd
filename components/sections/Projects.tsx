@@ -23,9 +23,9 @@ export function Projects({ dict }: { dict: any }) {
           <h2 className="text-3xl sm:text-4xl font-bold">
             {dict.projects.title} <span className="text-gradient">{dict.projects.titleHighlight}</span>
           </h2>
-          <div className="h-px bg-slate-800 flex-grow" />
+          <div className="h-px bg-border flex-grow" />
         </div>
-        <p className="text-slate-400 max-w-2xl">
+        <p className="text-muted-foreground max-w-2xl">
           {dict.projects.description}
         </p>
       </motion.div>
@@ -115,7 +115,7 @@ export function Projects({ dict }: { dict: any }) {
                     {project.stack.map((tech: string) => (
                       <span 
                         key={tech} 
-                        className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-slate-700/50 text-slate-400 backdrop-blur-sm"
+                        className="px-2 py-1 text-xs rounded-md bg-secondary/50 border border-border/50 text-foreground backdrop-blur-sm"
                       >
                         {tech}
                       </span>
